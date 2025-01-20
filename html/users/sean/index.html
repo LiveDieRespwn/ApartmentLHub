@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🎈 Quirky Page! 🎈</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff69b4, #4169e1);
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            color: #fff;
+        }
+        .bouncy {
+            animation: bounce 1s infinite;
+            font-size: 2em;
+            margin: 20px;
+            text-shadow: 3px 3px 5px #000;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .weird-button {
+            padding: 15px 30px;
+            border-radius: 50px;
+            background: #ff00ff;
+            border: none;
+            cursor: pointer;
+            transform: rotate(-5deg);
+            transition: all 0.3s;
+        }
+        .weird-button:hover {
+            transform: rotate(5deg) scale(1.1);
+            background: #00ff00;
+        }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            animation: spin 10s linear infinite;
+            border: 5px solid #ff69b4;
+            box-shadow: 0 0 20px #4169e1;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        .glitch-text {
+            position: relative;
+            animation: glitch 1s infinite;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        @keyframes glitch {
+            0% { transform: skew(0deg); }
+            20% { transform: skew(-10deg); color: #ff00ff; }
+            40% { transform: skew(10deg); color: #00ff00; }
+            60% { transform: skew(-5deg); color: #ff00ff; }
+            80% { transform: skew(5deg); color: #00ff00; }
+            100% { transform: skew(0deg); }
+        }
+        .rainbow-text {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 1.5em;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .sparkle {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff69b4;
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .bounce-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .bouncing-button {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+        }
+
+        .bouncing-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="bouncy">✨ Welcome to My Quirky Space ✨</div>
+    
+    <div class="rainbow-text floating">🌈 Embrace the Chaos 🌈</div>
+
+    <img src="./picture.jpg"
+         class="profile-pic"
+         alt="Sean's spinning face">
+
+    <div class="glitch-text">I'm not like the other girls... I'm WORSE 😈</div>
+    
+    <p class="sparkle">✨ I put the HOT in psychHOTic ✨</p>
+    <p class="rainbow-text">~* Living my best unhinged life *~</p>
+    <p class="floating">👻 Normal is boring, chaos is art 👻</p>
+    
+    <div style="margin: 20px;">
+        <button class="weird-button" onclick="makeThingsWeird()">Click for Chaos!</button>
+        <button class="weird-button" onclick="rainbowExplosion()" style="background: #ff4500;">UNLEASH MAYHEM</button>
+    </div>
+
+    <div class="bounce-container" id="bounceContainer"></div>
+
+    <script>
+        function makeThingsWeird() {
+            document.body.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+            setTimeout(() => document.body.style.transform = 'rotate(0deg)', 1000);
+        }
+        
+        function rainbowExplosion() {
+            document.body.style.animation = "spin 0.5s linear";
+            const colors = ['#ff69b4', '#4169e1', '#ff4500', '#00ff00'];
+            setInterval(() => {
+                document.body.style.background = `linear-gradient(${Math.random()*360}deg, 
+                    ${colors[Math.floor(Math.random()*colors.length)]}, 
+                    ${colors[Math.floor(Math.random()*colors.length)]})`
+            }, 200);
+            setTimeout(() => location.reload(), 2000);
+        }
+
+        class BouncingButton {
+            constructor(container, imageUrl) {
+                this.button = document.createElement('button');
+                this.button.className = 'bouncing-button';
+                this.button.style.backgroundImage = `url(${imageUrl})`;
+                this.button.style.backgroundSize = 'cover';
+                
+                this.x = Math.random() * (container.clientWidth - 100);
+                this.y = Math.random() * (container.clientHeight - 100);
+                this.dx = (Math.random() > 0.5 ? 1 : -1) * 2;
+                this.dy = (Math.random() > 0.5 ? 1 : -1) * 2;
+                
+                container.appendChild(this.button);
+                
+                this.button.onclick = () => {
+                    this.dx *= -1.5;
+                    this.dy *= -1.5;
+                    this.button.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                };
+                
+                this.animate(container);
+            }
+            
+            animate(container) {
+                const updatePosition = () => {
+                    this.x += this.dx;
+                    this.y += this.dy;
+                    
+                    if (this.x <= 0 || this.x >= container.clientWidth - 100) {
+                        this.dx *= -1;
+                        this.button.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    }
+                    if (this.y <= 0 || this.y >= container.clientHeight - 100) {
+                        this.dy *= -1;
+                        this.button.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    }
+                    
+                    this.button.style.left = `${this.x}px`;
+                    this.button.style.top = `${this.y}px`;
+                    
+                    requestAnimationFrame(updatePosition);
+                };
+                
+                updatePosition();
+            }
+        }
+
+        // Create bouncing buttons
+        const container = document.getElementById('bounceContainer');
+        const imageUrls = [
+            './picture.jpg',
+            './picture.jpg',
+            './picture.jpg'
+        ];
+        
+        imageUrls.forEach(url => new BouncingButton(container, url));
+    </script>
+</body>
+</html>

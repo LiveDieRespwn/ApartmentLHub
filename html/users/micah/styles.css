@@ -1,5 +1,3 @@
-/* v1.1 */
-
 h1, h2, p {
     text-align: center;
 }
@@ -17,10 +15,8 @@ h1, h2 {
     margin: auto;
 }
 
-.header {
-    background: #092735;
-    margin-top: 1rem;
-    padding: 1rem 0;
+.profile_buttons div {
+    display: inline;
 }
 
 .button {
