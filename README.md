@@ -1,2 +1,2 @@
 # ApartmentLHub
-Our apartment webserver https://apartmentlhub.mynetgear.com/
+Our apartment webserver https://apartmentlhub.com/
