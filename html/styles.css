@@ -1,38 +1,9 @@
-/* v1.1 */
-
-h1, h2, p {
-    text-align: center;
-}
-
-h1, h2 {
-    margin: 0.25em;
-}
-
-.profile_buttons div {
-    display: inline;
-}
-
-.profile_buttons {
-    width: fit-content;
-    margin: auto;
-}
+/* v1.1.a */
 
 .header {
     background: #092735;
     margin-top: 1rem;
     padding: 1rem 0;
-}
-
-.button {
-    background-color: #092735;
-    color: #d7eefd;
-    padding: 5px 10px;
-    border-color: #d7eefd;
-}
-
-.amogus {
-    margin: 0 auto;
-    max-width: fit-content;
 }
 
 body {
@@ -41,4 +12,75 @@ body {
     font-family: Tahoma, Verdana, sans-serif;
     width: 100%;
     margin: 0;
+}
+
+h1, h2, h3, p {
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 0.25em;
+}
+
+h3 {
+    margin: 0 0 2.25em 0;
+}
+
+.button {
+    background-color: #092735;
+    color: #d7eefd;
+    font-size: large;
+    padding: 1em 2em;
+    margin: 0.5em 0.5em;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #092735b0;
+}
+
+.button:active {
+    background-color: #09273570;
+}
+
+.profile_buttons {
+    width: fit-content;
+    margin: auto;
+}
+
+.profile_buttons div {
+    display: inline;
+}
+
+.settings {
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.img_button {
+    background: none;
+    border: none;
+}
+
+.img_button img {
+    width: 50%;
+}
+
+.amogus {
+    margin: 0 auto;
+    width: 60%;
+}
+
+.amogus img {
+    width: 100%;
+}
+
+.light-mode {
+    background-color: #d7eefd;
+    color: #031c27;
+}
+
+.dark-mode {
+    background-color: #031c27;
+    color: #d7eefd;
 }
