@@ -8,6 +8,9 @@
             font-family: 'Comic Sans MS', cursive;
             text-align: center;
             color: #fff;
+            height: 100vh;
+            overflow: hidden;
+            user-select: none;
         }
         .bouncy {
             animation: bounce 1s infinite;
@@ -102,11 +105,12 @@
         }
 
         .bouncing-button:hover {
-            transform: scale(1.1);
+            transform: scale(1.4);
         }
     </style>
 </head>
 <body>
+    <br>
     <div class="bouncy">✨ Welcome to My Quirky Space ✨</div>
     
     <div class="rainbow-text floating">🌈 Embrace the Chaos 🌈</div>
@@ -134,15 +138,27 @@
             setTimeout(() => document.body.style.transform = 'rotate(0deg)', 1000);
         }
         
+        function getRandomImage() {
+            const random = Math.random();
+            return random < 0.32 ? './amogusdance.gif' : './amogus2.png';
+        }
+        
         function rainbowExplosion() {
+            let intervalId;
             document.body.style.animation = "spin 0.5s linear";
             const colors = ['#ff69b4', '#4169e1', '#ff4500', '#00ff00'];
-            setInterval(() => {
+            intervalId = setInterval(() => {
                 document.body.style.background = `linear-gradient(${Math.random()*360}deg, 
                     ${colors[Math.floor(Math.random()*colors.length)]}, 
                     ${colors[Math.floor(Math.random()*colors.length)]})`
             }, 200);
-            setTimeout(() => location.reload(), 2000);
+            
+            setTimeout(() => {
+                document.body.style.animation = "";
+                clearInterval(intervalId);
+                document.body.style.background = "linear-gradient(45deg, #ff69b4, #4169e1)";
+                new BouncingButton(container, getRandomImage());
+            }, 2000);
         }
 
         class BouncingButton {
@@ -154,14 +170,14 @@
                 
                 this.x = Math.random() * (container.clientWidth - 100);
                 this.y = Math.random() * (container.clientHeight - 100);
-                this.dx = (Math.random() > 0.5 ? 1 : -1) * 2;
-                this.dy = (Math.random() > 0.5 ? 1 : -1) * 2;
+                this.dx = (Math.random() > 0.5 ? 1 : -1) * 0.2;
+                this.dy = (Math.random() > 0.5 ? 1 : -1) * 0.2;
                 
                 container.appendChild(this.button);
                 
                 this.button.onclick = () => {
-                    this.dx *= -1.5;
-                    this.dy *= -1.5;
+                    this.dx *= -1.1;
+                    this.dy *= -1.1;
                     this.button.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
                 };
                 
@@ -195,9 +211,6 @@
         // Create bouncing buttons
         const container = document.getElementById('bounceContainer');
         const imageUrls = [
-            './picture.jpg',
-            './picture.jpg',
-            './picture.jpg'
         ];
         
         imageUrls.forEach(url => new BouncingButton(container, url));
