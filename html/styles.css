@@ -1,4 +1,4 @@
-/* v1.1.a */
+/* v1.1.b */
 
 .header {
     background: #092735;
@@ -27,53 +27,54 @@ h3 {
 }
 
 .button {
-    background-color: #092735;
-    color: #d7eefd;
+    display: block;
+    background-color: #71a0bf;
+    color: #092735;
     font-size: large;
     padding: 1em 2em;
     margin: 0.5em 0.5em;
     text-decoration: none;
+    border-radius: 3px;
+    font-weight: 600;
 }
 
 .button:hover {
-    background-color: #092735b0;
+    background-color: #71a0bfc0;
 }
 
 .button:active {
-    background-color: #09273570;
+    background-color: #71a0bfa0;
 }
 
 .profile_buttons {
-    width: fit-content;
+    display: flex;
+    width: 80%;
+    min-height: 200px;
+    height: 20vh;
     margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #092735;
+    border-radius: 3px;
+    overflow: auto;
 }
 
-.profile_buttons div {
-    display: inline;
+.profile_buttons span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.settings {
-    width: fit-content;
-    margin: 20px auto;
+.profile_img {
+    width: 64px;
+    margin: 8px 0;
 }
 
-.img_button {
-    background: none;
-    border: none;
-}
-
-.img_button img {
-    width: 50%;
-}
-
-.amogus {
-    margin: 0 auto;
-    width: 60%;
-}
-
-.amogus img {
+.profile_buttons img {
     width: 100%;
 }
+
+
 
 .light-mode {
     background-color: #d7eefd;

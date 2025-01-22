@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!---v1.1.a--->
+<!---v1.1.b--->
 <html lang="en">
     <head>
         <title>Apartment L Hub</title>
@@ -7,7 +7,7 @@
         <meta name="description" content="The webserver hub for four Virginia Tech roommates living at Apartment L: Micah, Kai, Sean, and Aditya.">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css?v=1.1.a">
+        <link rel="stylesheet" href="styles.css?v=1.1.b">
     </head>
     <body>
         <div class="header">
@@ -18,20 +18,24 @@
             <p>Home of the worst bedwars quad you will ever meet.</p>
             <h3>Introducing:</h3>
         </div>
-        <div class="profile_buttons">
-            <div>
-                <a href="/users/kai/" class="button">Kai</a>
-            </div>
-            <div>
-                <a href="/users/micah/" class="button">Micah</a>
-            </div>
-            <div>
-                <a href="/users/sean/" class="button">Sean</a>
-            </div>
-            <div>
-                <a href="/users/deet/" class="button">Aditya</a>
-            </div>
-        </div>
+        <section class="profile_buttons">
+            <span>
+                <div class="profile_img"><img src="imgs/sun.png"></div>
+                <div><a href="/users/kai/" class="button">Kai</a></div>
+            </span>
+            <span>
+                <div class="profile_img"><img src="imgs/moon.png"></div>
+                <div><a href="/users/micah/" class="button">Micah</a></div>
+            </span>
+            <span>
+                <div class="profile_img"><img src="imgs/sun.png"></div>
+                <div><a href="/users/sean/" class="button">Sean</a></div>
+            </span>
+            <span>
+                <div class="profile_img"><img src="imgs/moon.png"></div>
+                <div><a href="/users/deet/" class="button">Aditya</a></div>
+            </span>
+        </section>
         <!---<div class="settings">
             <button onclick="toggleLightMode()" type="button" class="img_button">
                 <img src="/imgs/sun.png" alt="sun">
