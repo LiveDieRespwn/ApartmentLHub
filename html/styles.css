@@ -1,4 +1,4 @@
-/* v1.1.c */
+/* v1.1.d */
 
 .header {
     background: #092735;
@@ -64,6 +64,18 @@ h3 {
     overflow: auto;
 }
 
+.projects_section {
+    width: 60%;
+    margin: auto;
+    padding: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #092735;
+    border-radius: 3px;
+    overflow: auto;
+    text-align: center; /* this removed is fun */
+}
+
 .profile_buttons span {
     display: flex;
     flex-direction: column;
@@ -77,6 +89,10 @@ h3 {
 
 .profile_buttons img {
     width: 100%;
+}
+
+.project {
+    padding: 2em 2em;
 }
 
 
