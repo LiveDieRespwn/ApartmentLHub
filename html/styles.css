@@ -1,4 +1,4 @@
-/* v1.1.d */
+/* v1.1.e */
 
 .header {
     background: #092735;
@@ -54,7 +54,7 @@ h3 {
 .profile_buttons {
     display: flex;
     width: 80%;
-    min-height: 200px;
+    min-height: 230px;
     height: 20vh;
     margin: auto;
     justify-content: space-evenly;
@@ -83,16 +83,36 @@ h3 {
 }
 
 .profile_img {
-    width: 64px;
+    width: 86px;
+    height: 86px;
     margin: 8px 0;
+    border: 2px solid #71a0bf;
+    border-radius: 5px;
 }
 
-.profile_buttons img {
+.profile_img img {
     width: 100%;
+    border-radius: 3px;
 }
 
 .project {
     padding: 2em 2em;
+}
+
+.projects_section {
+    margin-bottom: 8vh;
+}
+
+footer {
+    background-color: #092735;
+    font-size: 0.6rem;
+    padding: 1%;
+    margin: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0.5em;
 }
 
 
